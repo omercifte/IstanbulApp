@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.RouteDetailPage"
+             Title=""
+             BackgroundColor="#F8F9FA">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- Üst görsel + gradyan + bilgiler -->
+            <Border StrokeThickness="0" HeightRequest="260">
+                <Grid>
+                    <Image x:Name="RouteImage"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Fill" />
+
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#00000000" Offset="0.3" />
+                                <GradientStop Color="#CC000000" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+
+                    <VerticalStackLayout VerticalOptions="End" Padding="20" Spacing="6">
+                        <HorizontalStackLayout Spacing="8">
+                            <Border BackgroundColor="#D4AF37"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10"
+                                    Padding="10,3">
+                                <Label x:Name="CategoryLabel"
+                                       FontFamily="Inter"
+                                       FontSize="11"
+                                       TextColor="#FFFFFF" />
+                            </Border>
+                            <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
+                                <Label Text="&#xe935;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="14"
+                                       TextColor="#FFFFFF"
+                                       VerticalOptions="Center" />
+                                <Label x:Name="DurationLabel"
+                                       FontFamily="Inter"
+                                       FontSize="13"
+                                       TextColor="#FFFFFF"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </HorizontalStackLayout>
+
+                        <Label x:Name="TitleLabel"
+                               FontFamily="HankenBold"
+                               FontSize="26"
+                               TextColor="#FFFFFF" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Açıklama -->
+            <VerticalStackLayout Padding="20,16,20,8" Spacing="4">
+                <Label x:Name="DescriptionLabel"
+                       FontFamily="HankenRegular"
+                       FontSize="15"
+                       TextColor="#434652" />
+            </VerticalStackLayout>
+
+            <!-- JOURNEY STOPS -->
+            <VerticalStackLayout Padding="20,16,20,24" Spacing="16">
+
+                <Label Text="ROTA DURAKLARI"
+                       FontFamily="Inter"
+                       FontSize="13"
+                       TextColor="#0D47A1"
+                       CharacterSpacing="1.5" />
+
+                <CollectionView x:Name="StopsCollection">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="0" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="Auto, *" Padding="0,0,0,4">
+
+                                <!-- Sol: ikon + bağlantı çizgisi -->
+                                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="0">
+                                    <Border BackgroundColor="#D9E2FF"
+                                            WidthRequest="36"
+                                            HeightRequest="36"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 18">
+                                        <Label Text="&#xe838;"
+                                               FontFamily="MaterialSymbols"
+                                               FontSize="18"
+                                               TextColor="#0D47A1"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center" />
+                                    </Border>
+                                    <BoxView Color="#C3C6D4"
+                                             WidthRequest="2"
+                                             HeightRequest="32"
+                                             HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+
+                                <!-- Sağ: durak bilgisi -->
+                                <VerticalStackLayout Grid.Column="1" Padding="12,0,0,8" Spacing="2">
+                                    <Label Text="{Binding Name}"
+                                           FontFamily="HankenBold"
+                                           FontSize="16"
+                                           TextColor="#191C1D" />
+                                    <Label Text="{Binding Description}"
+                                           FontFamily="HankenRegular"
+                                           FontSize="13"
+                                           TextColor="#455A64" />
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

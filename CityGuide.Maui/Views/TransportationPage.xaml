@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.TransportationPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- ============ ÜST APP BAR ============ -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto, *, Auto"
+              Padding="20,12"
+              ColumnSpacing="12"
+              BackgroundColor="#F8F9FA">
+
+            <Border Grid.Column="0"
+                    BackgroundColor="#0D47A1"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+                <Label Text="&#xea3b;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <Label Grid.Column="1"
+                   Text="Milano Şehir Rehberi"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center" />
+
+            <Border Grid.Column="2"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="1"
+                    Stroke="#C3C6D4"
+                    StrokeShape="RoundRectangle 18"
+                    VerticalOptions="Center">
+                <Image Source="profile.png" Aspect="AspectFill" />
+            </Border>
+
+        </Grid>
+
+        <!-- ============ KAYAN İÇERİK ============ -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,8,20,20" Spacing="24">
+
+                <!-- ============ HERO ============ -->
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="ULAŞIM REHBERİ"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#455A64"
+                           CharacterSpacing="2" />
+                    <Label Text="Milano'da Ulaşım"
+                           FontFamily="HankenBold"
+                           FontSize="32"
+                           TextColor="#0D47A1" />
+                    <Label Text="Milano'da bir yerli hassasiyetiyle yol alın. Tarihi tramvaylardan yüksek hızlı metro hatlarına kadar, şehri keşfetmenin en verimli yollarını öğrenin."
+                           FontFamily="HankenRegular"
+                           FontSize="16"
+                           TextColor="#434652" />
+                </VerticalStackLayout>
+
+                <!-- ============ BENTO GRID (statik) ============ -->
+                <Grid ColumnDefinitions="*, *"
+                      RowDefinitions="Auto, Auto"
+                      ColumnSpacing="12"
+                      RowSpacing="12">
+
+                    <!-- Metro Rehberi -->
+                    <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                            BackgroundColor="#F3F4F5"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="16"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="&#xe571;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="28"
+                                   TextColor="#0D47A1" />
+                            <Label Text="Metro Rehberi"
+                                   FontFamily="HankenBold"
+                                   FontSize="20"
+                                   TextColor="#0D47A1" />
+                            <Label Text="Tüm metropolü birbirine bağlayan 5 hat."
+                                   FontFamily="HankenRegular"
+                                   FontSize="14"
+                                   TextColor="#434652" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Biletler -->
+                    <Border Grid.Row="1" Grid.Column="0"
+                            BackgroundColor="#FEF6D6"
+                            Stroke="#FED65B"
+                            StrokeThickness="1"
+                            Padding="16"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="&#xe138;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="26"
+                                   TextColor="#745C00" />
+                            <Label Text="Biletler"
+                                   FontFamily="HankenBold"
+                                   FontSize="18"
+                                   TextColor="#745C00" />
+                            <Label Text="€2,20 Tek Yön"
+                                   FontFamily="HankenBold"
+                                   FontSize="13"
+                                   TextColor="#745C00" />
+                            <Label Text="Tüm geçişlerde temassız ödeme kabul edilir"
+                                   FontFamily="HankenRegular"
+                                   FontSize="11"
+                                   TextColor="#745C00" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Havaalanları -->
+                    <Border Grid.Row="1" Grid.Column="1"
+                            BackgroundColor="#F3F4F5"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="16"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="&#xe539;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="26"
+                                   TextColor="#0D47A1" />
+                            <Label Text="Havaalanları"
+                                   FontFamily="HankenBold"
+                                   FontSize="18"
+                                   TextColor="#0D47A1" />
+                            <Label Text="Malpensa'ya her 30 dakikada bir ekspres tren."
+                                   FontFamily="HankenRegular"
+                                   FontSize="12"
+                                   TextColor="#434652" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+                <!-- ============ METRO HATLARI (SQLite) ============ -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Metro Hatları"
+                           FontFamily="HankenBold"
+                           FontSize="24"
+                           TextColor="#0D47A1" />
+
+                    <CollectionView x:Name="MetroCollection">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <BoxView Grid.Column="0"
+                                             WidthRequest="6"
+                                             Color="{Binding ColorHex}" />
+                                    <Border Grid.Column="1"
+                                            BackgroundColor="#FFFFFF"
+                                            Stroke="#C3C6D4"
+                                            StrokeThickness="1"
+                                            Padding="16"
+                                            StrokeShape="RoundRectangle 0,8,0,8">
+                                        <VerticalStackLayout Spacing="6">
+                                            <HorizontalStackLayout Spacing="8">
+                                                <Label Text="{Binding LineCode}"
+                                                       FontFamily="HankenBold"
+                                                       FontSize="16"
+                                                       TextColor="{Binding ColorHex}" />
+                                                <Label Text="{Binding LineName}"
+                                                       FontFamily="Inter"
+                                                       FontSize="11"
+                                                       TextColor="#455A64"
+                                                       CharacterSpacing="1"
+                                                       VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
+                                            <Label Text="{Binding Route}"
+                                                   FontFamily="HankenRegular"
+                                                   FontSize="13"
+                                                   TextColor="#191C1D" />
+                                            <HorizontalStackLayout Spacing="6">
+                                                <Ellipse Fill="#00796B"
+                                                         WidthRequest="8"
+                                                         HeightRequest="8"
+                                                         VerticalOptions="Center" />
+                                                <Label Text="{Binding Status}"
+                                                       FontFamily="Inter"
+                                                       FontSize="11"
+                                                       TextColor="#434652"
+                                                       VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+                <!-- ============ TRAMVAY & YÜZEY (SQLite) ============ -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Tramvay &amp; Yüzey"
+                           FontFamily="HankenBold"
+                           FontSize="24"
+                           TextColor="#0D47A1" />
+
+                    <CollectionView x:Name="SurfaceCollection">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BackgroundColor="#FFFFFF"
+                                        Stroke="#C3C6D4"
+                                        StrokeThickness="1"
+                                        Padding="16"
+                                        StrokeShape="RoundRectangle 12">
+                                    <Grid ColumnDefinitions="Auto, *" ColumnSpacing="16">
+                                        <Border Grid.Column="0"
+                                                WidthRequest="48"
+                                                HeightRequest="48"
+                                                BackgroundColor="#EDEEEF"
+                                                StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 10"
+                                                VerticalOptions="Start">
+                                            <Label Text="{Binding IconGlyph}"
+                                                   FontFamily="MaterialSymbols"
+                                                   FontSize="24"
+                                                   TextColor="{Binding ColorHex}"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center" />
+                                        </Border>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                            <Label Text="{Binding LineName}"
+                                                   FontFamily="HankenBold"
+                                                   FontSize="16"
+                                                   TextColor="#191C1D" />
+                                            <Label Text="{Binding Route}"
+                                                   FontFamily="HankenRegular"
+                                                   FontSize="14"
+                                                   TextColor="#434652" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+                <!-- ============ HAVAALANI TRANSFERLERİ (statik) ============ -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Havaalanı Transferleri"
+                           FontFamily="HankenBold"
+                           FontSize="24"
+                           TextColor="#0D47A1" />
+
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="0"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="0">
+
+                            <Border StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12,12,0,0"
+                                    HeightRequest="128">
+                                <Grid>
+                                    <Image Source="malpensa.png" Aspect="AspectFill" />
+                                    <BoxView>
+                                        <BoxView.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="#00000000" Offset="0.0" />
+                                                <GradientStop Color="#99000000" Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </BoxView.Background>
+                                    </BoxView>
+                                    <Label Text="Malpensa Express"
+                                           FontFamily="HankenBold"
+                                           FontSize="14"
+                                           TextColor="#FFFFFF"
+                                           VerticalOptions="End"
+                                           HorizontalOptions="Start"
+                                           Margin="16" />
+                                </Grid>
+                            </Border>
+
+                            <VerticalStackLayout Padding="16" Spacing="8">
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Grid.Column="0"
+                                           Text="MXP TERMİNAL 1 &amp; 2"
+                                           FontFamily="Inter"
+                                           FontSize="11"
+                                           TextColor="#455A64"
+                                           CharacterSpacing="1"
+                                           VerticalOptions="Center" />
+                                    <Label Grid.Column="1"
+                                           Text="€13,00"
+                                           FontFamily="HankenBold"
+                                           FontSize="16"
+                                           TextColor="#0D47A1"
+                                           VerticalOptions="Center" />
+                                </Grid>
+
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="&#xe8b5;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="16"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+                                    <Label Text="04:27'de başlar — 00:20'de biter"
+                                           FontFamily="HankenRegular"
+                                           FontSize="13"
+                                           TextColor="#191C1D"
+                                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="&#xe0c8;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="16"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+                                    <Label Text="Cadorna veya Centrale'den kalkar"
+                                           FontFamily="HankenRegular"
+                                           FontSize="13"
+                                           TextColor="#191C1D"
+                                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <Button Text="Bilet Al"
+                                        Clicked="OnBuyTicketClicked"
+                                        BackgroundColor="#FFFFFF"
+                                        TextColor="#0D47A1"
+                                        BorderColor="#0D47A1"
+                                        BorderWidth="1"
+                                        FontFamily="HankenBold"
+                                        FontSize="14"
+                                        HeightRequest="44"
+                                        CornerRadius="8"
+                                        Margin="0,8,0,0" />
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ============ ALT NAV BAR ============ -->
+        <Grid Grid.Row="2"
+              ColumnDefinitions="*, *, *"
+              BackgroundColor="#FFFFFF"
+              Padding="0,8"
+              HeightRequest="64">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe88a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Ana Sayfa" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDiscoverTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe87a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Keşfet" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe878;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Etkinlikler" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

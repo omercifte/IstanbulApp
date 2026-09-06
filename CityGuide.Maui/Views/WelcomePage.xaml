@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.WelcomePage"
+             Title="WelcomePage">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- ============ HEADER ============ -->
+        <Grid Grid.Row="0"
+              HeightRequest="64"
+              ColumnDefinitions="*, Auto"
+              Padding="20,0"
+              BackgroundColor="#F8F9FA">
+
+            <!-- Kolon 0: Marka adı (sola yaslı) -->
+            <Label Grid.Column="0"
+                   Text="Milano City Guide"
+                   TextColor="#0D47A1"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start" />
+
+            <!-- Kolon 1: Dil ikonu (sağa yaslı) -->
+            <Label Grid.Column="1"
+                   Text="🌐"
+                   FontSize="22"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End" />
+
+        </Grid>
+
+        <!-- ============ SCROLL EDEN ALAN ============ -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- ============ HERO ============ -->
+                <Grid HeightRequest="400">
+
+                    <Image Source="hero_milano.png"
+           Aspect="AspectFill" />
+
+                    <Border>
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#00000000" Offset="0.0" />
+                                <GradientStop Color="#66000000" Offset="0.5" />
+                                <GradientStop Color="#FFF8F9FA" Offset="0.95" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <VerticalStackLayout VerticalOptions="End"
+                     Padding="20,24"
+                     Spacing="8">
+
+                        <!-- Rozet -->
+                        <Border BackgroundColor="#FED65B"
+            Padding="12,4"
+            HorizontalOptions="Start"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 20">
+                            <Label Text="Milanoya Hoş Geldiniz"
+               TextColor="#0D47A1"
+               FontSize="12"
+               FontAttributes="Bold" />
+                        </Border>
+
+                        <!-- Başlık -->
+                        <Label Text="Lombardiya'nın zarif kalbini keşfedin."
+           TextColor="Black"
+           FontSize="28"
+           FontAttributes="Bold" />
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <!-- CONTENT -->
+                <VerticalStackLayout Padding="20,24" Spacing="16">
+
+                    <Label Text="Duomo'nun gotik ihtişamından Brera'nın gizli avlularına kadar Milano'yu gerçek bir yerli gibi keşfedin. Özenle seçilmiş mimari, dünya standartlarında lezzetler ve İtalyan yaşam tarzının zarafetini deneyimleyin."
+           TextColor="#455A64"
+           FontSize="16"
+           LineHeight="1.4" />
+
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="16">
+
+                        <!-- Kart 1: Seçkin Sanat -->
+                        <Border Grid.Column="0"
+            Stroke="#C3C6D4"
+            StrokeThickness="1"
+            BackgroundColor="#F3F4F5"
+            Padding="16"
+            StrokeShape="RoundRectangle 12">
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="🏛" FontSize="22" TextColor="#0D47A1" VerticalOptions="Center" />
+                                <Label Text="Seçkin Sanat" FontSize="14" TextColor="#191C1D" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+
+                        <!-- Kart 2: Seçkin Lezzetler -->
+                        <Border Grid.Column="1"
+            Stroke="#C3C6D4"
+            StrokeThickness="1"
+            BackgroundColor="#F3F4F5"
+            Padding="16"
+            StrokeShape="RoundRectangle 12">
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="🍽" FontSize="22" TextColor="#0D47A1" VerticalOptions="Center" />
+                                <Label Text="Seçkin Lezzetler" FontSize="14" TextColor="#191C1D" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+
+                    </Grid>
+
+
+
+                </VerticalStackLayout>
+
+
+                <!-- AUTH CARD -->
+                <VerticalStackLayout Padding="20,24">
+
+                    <Border Stroke="#C3C6D4"
+            StrokeThickness="1"
+            BackgroundColor="#FFFFFF"
+            Padding="24"
+            StrokeShape="RoundRectangle 16">
+
+                        <VerticalStackLayout Spacing="12">
+
+                            <!-- Birincil buton -->
+                            <Button Text="Giriş Yap"
+                    BackgroundColor="#0D47A1"
+                    TextColor="#FFFFFF"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    HeightRequest="56"
+                    CornerRadius="12" />
+
+                            <!-- İkincil buton -->
+                            <Button Text="Hesap Oluştur"
+                    BackgroundColor="#FFFFFF"
+                    TextColor="#D4AF37"
+                    BorderColor="#D4AF37"
+                    BorderWidth="2"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    HeightRequest="56"
+                    CornerRadius="12" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <!-- Ayraç: çizgi - metin - çizgi -->
+                    <Grid ColumnDefinitions="*, Auto, *"
+      ColumnSpacing="12"
+      Margin="0,8">
+
+                        <BoxView Grid.Column="0"
+             HeightRequest="1"
+             Color="#C3C6D4"
+             VerticalOptions="Center" />
+
+                        <Label Grid.Column="1"
+           Text="veya şununla devam et"
+           TextColor="#737783"
+           FontSize="12"
+           VerticalOptions="Center" />
+
+                        <BoxView Grid.Column="2"
+             HeightRequest="1"
+             Color="#C3C6D4"
+             VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <!-- Sosyal butonlar: yan yana -->
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="16">
+
+                        <Button Grid.Column="0"
+            Text="Google"
+            BackgroundColor="#FFFFFF"
+            TextColor="#191C1D"
+            BorderColor="#C3C6D4"
+            BorderWidth="1"
+            FontSize="12"
+            HeightRequest="48"
+            CornerRadius="8" />
+
+                        <Button Grid.Column="1"
+            Text="Apple"
+            BackgroundColor="#FFFFFF"
+            TextColor="#191C1D"
+            BorderColor="#C3C6D4"
+            BorderWidth="1"
+            FontSize="12"
+            HeightRequest="48"
+            CornerRadius="8" />
+
+                    </Grid>
+                    <!-- Yasal metin -->
+                    <Label TextColor="#737783"
+       FontSize="12"
+       HorizontalTextAlignment="Center"
+       Margin="0,8,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Devam ederek " />
+                                <Span Text="Hizmet Şartları" TextColor="#0D47A1" />
+                                <Span Text=" ve " />
+                                <Span Text="Gizlilik Politikası" TextColor="#0D47A1" />
+                                <Span Text="'nı kabul etmiş olursunuz." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+
+
+                </VerticalStackLayout>
+
+
+                <!-- FOOTER -->
+                <VerticalStackLayout Padding="20,24" Spacing="16">
+
+                    <BoxView HeightRequest="1"
+             Color="#C3C6D4"
+             HorizontalOptions="Fill" />
+
+                    <!-- Telif sol, linkler sağ: Grid ile iki uca yaslama -->
+                    <Grid ColumnDefinitions="*, Auto">
+
+                        <!-- Sol: telif metni -->
+                        <Label Grid.Column="0"
+               Text="2026 Milano Şehir Rehberi. Tüm hakları saklıdır."
+               TextColor="#737783"
+               FontSize="12"
+               VerticalOptions="Center" />
+
+                        <!-- Sağ: linkler yan yana -->
+                        <HorizontalStackLayout Grid.Column="1" Spacing="24">
+                            <Label Text="Explore" TextColor="#737783" FontSize="12" />
+                            <Label Text="Concierge" TextColor="#737783" FontSize="12" />
+                            <Label Text="Stay" TextColor="#737783" FontSize="12" />
+                        </HorizontalStackLayout>
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

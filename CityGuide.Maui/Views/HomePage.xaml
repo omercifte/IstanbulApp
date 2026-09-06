@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.HomePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- === ÜST APP BAR (sabit) === -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto, *, Auto"
+              Padding="20,12"
+              BackgroundColor="#F8F9FA"
+              ColumnSpacing="12">
+
+            <Border Grid.Column="0"
+                    BackgroundColor="#0D47A1"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+                <Label Text="&#xea3b;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <Label Grid.Column="1"
+                   Text="Milano City Guide"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center" />
+
+            <Border Grid.Column="2"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="1"
+                    Stroke="#C3C6D4"
+                    StrokeShape="RoundRectangle 18"
+                    VerticalOptions="Center">
+                <Image Source="profile.png"
+                       Aspect="AspectFill" />
+            </Border>
+
+        </Grid>
+
+        <!-- === KAYDIRILABİLİR İÇERİK === -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,8,20,20" Spacing="24">
+
+                <!-- === KARŞILAMA + ARAMA === -->
+                <VerticalStackLayout Spacing="16">
+
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Buongiorno! 👋"
+                               FontFamily="HankenBold"
+                               FontSize="32"
+                               TextColor="#0D47A1" />
+                        <Label Text="Lombardiya'nın kalbini keşfetmeye hazır mısınız?"
+                               FontFamily="HankenRegular"
+                               FontSize="18"
+                               TextColor="#455A64" />
+                    </VerticalStackLayout>
+
+                    <Border Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="16,0"
+                            StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#FFFFFF">
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12">
+                            <Label Grid.Column="0"
+                                   Text="&#xe8b6;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="20"
+                                   TextColor="#737783"
+                                   VerticalOptions="Center" />
+                            <Entry Grid.Column="1"
+                                   Placeholder="Mekan, yemek ara..."
+                                   FontFamily="HankenRegular"
+                                   FontSize="16"
+                                   HeightRequest="52"
+                                   BackgroundColor="Transparent" />
+                        </Grid>
+                    </Border>
+
+                </VerticalStackLayout>
+
+                <!-- === PANEL KISAYOLU === -->
+                <Border BackgroundColor="#EDE7F6"
+        Stroke="#D1C4E9"
+        StrokeThickness="1"
+        Padding="16"
+        StrokeShape="RoundRectangle 14">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDashboardClicked" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="12">
+                        <Border Grid.Column="0"
+                BackgroundColor="#D1C4E9"
+                WidthRequest="40" HeightRequest="40"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20">
+                            <Label Text="&#xe94e;"
+                   FontFamily="MaterialSymbols"
+                   FontSize="20"
+                   TextColor="#4A148C"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center">
+                            <Label Text="Panel"
+                   FontFamily="HankenBold"
+                   FontSize="15"
+                   TextColor="#4A148C" />
+                            <Label Text="Döviz, hava durumu ve daha fazlası"
+                   FontFamily="Inter"
+                   FontSize="12"
+                   TextColor="#4A148C" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2"
+               Text="&#xe5cc;"
+               FontFamily="MaterialSymbols"
+               FontSize="20"
+               TextColor="#4A148C"
+               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+
+                <!-- === ÖNE ÇIKAN (HERO) === -->
+                <Border StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        HeightRequest="380">
+
+                    <Grid>
+                        <Image Source="milano_catedral.jpg"
+                               Aspect="AspectFill"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Fill" />
+
+                        <BoxView>
+                            <BoxView.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#00000000" Offset="0.0" />
+                                    <GradientStop Color="#33000000" Offset="0.5" />
+                                    <GradientStop Color="#CC000000" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </BoxView.Background>
+                        </BoxView>
+
+                        <VerticalStackLayout VerticalOptions="End"
+                                             Padding="20"
+                                             Spacing="8">
+                            <Label Text="ÖNE ÇIKAN"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#D4AF37"
+                                   CharacterSpacing="2" />
+                            <Label Text="Milano Katedrali"
+                                   FontFamily="HankenBold"
+                                   FontSize="28"
+                                   TextColor="#FFFFFF" />
+                            <Label Text="Gün batımında çatı teraslarından mimari şaheseri deneyimleyin."
+                                   FontFamily="HankenRegular"
+                                   FontSize="14"
+                                   TextColor="#E6FFFFFF" />
+                            <Button Text="Deneyimi Keşfet"
+                                    Clicked="OnExploreClicked"
+                                    BackgroundColor="#0D47A1"
+                                    TextColor="#FFFFFF"
+                                    FontFamily="HankenBold"
+                                    FontSize="14"
+                                    HeightRequest="44"
+                                    CornerRadius="8"
+                                    HorizontalOptions="Start"
+                                    Padding="20,0"
+                                    Margin="0,8,0,0" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- === KATEGORİLER === -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Grid.Column="0"
+                               Text="Kategoriler"
+                               FontFamily="HankenBold"
+                               FontSize="24"
+                               TextColor="#0D47A1" />
+                        <Label Grid.Column="1"
+                               Text="Tümünü Gör"
+                               FontFamily="Inter"
+                               FontSize="14"
+                               TextColor="#0D47A1"
+                               VerticalOptions="Center" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, *, *"
+                          RowDefinitions="Auto, Auto"
+                          ColumnSpacing="12"
+                          RowSpacing="16">
+
+                        <!-- Yeme-İçme -->
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="6">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFoodDrinksClicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Border BackgroundColor="#FFF3C4"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe56c;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#745C00"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Yeme-İçme"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                        <!-- Müzeler -->
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="6">
+                            <Border BackgroundColor="#D9E2FF"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe8f8;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#0D47A1"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Müzeler"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                        <!-- Kültür & Sanat -->
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="6">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCultureClicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Border BackgroundColor="#FFDBCD"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe40a;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#7D2D00"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Kültür &amp; Sanat"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                        <!-- Ulaşım -->
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="6">
+                            <Border BackgroundColor="#C8E6C9"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe571;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#1B5E20"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Ulaşım"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                        <!-- Rotalar -->
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="6">
+                            <Border BackgroundColor="#B2EBF2"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe55b;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#006064"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Rotalar"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                        <!-- favoriler -->
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="2" Spacing="6">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFavoritesClicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Border BackgroundColor="#E1BEE7"
+                                    WidthRequest="56" HeightRequest="56"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 28"
+                                    HorizontalOptions="Center">
+                                <Label Text="&#xe878;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="26"
+                                       TextColor="#4A148C"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <Label Text="Favoriler"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#191C1D"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+
+                    </Grid>
+                    
+                </VerticalStackLayout>
+
+                <!-- === POPÜLER YERLER === -->
+                <VerticalStackLayout Spacing="12">
+
+                    <!-- Başlık -->
+                    <Label Text="Popüler Yerler"
+           FontFamily="HankenBold"
+           FontSize="24"
+           TextColor="#0D47A1" />
+
+                    <!-- Yatay kaydırmalı mekan kartları -->
+                    <CollectionView x:Name="PopularPlacesCollection"
+                    HeightRequest="280">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Border WidthRequest="260"
+                        BackgroundColor="#FFFFFF"
+                        Stroke="#C3C6D4"
+                        StrokeThickness="1"
+                        Padding="0"
+                        StrokeShape="RoundRectangle 16">
+
+                                    <VerticalStackLayout Spacing="0">
+
+                                        <!-- Görsel + kalp -->
+                                        <Border StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16,16,0,0"
+                                HeightRequest="150">
+                                            <Grid>
+                                                <Image Source="{Binding ImageUrl}"
+                                       Aspect="AspectFill" />
+                                            </Grid>
+                                        </Border>
+
+                                        <!-- İçerik -->
+                                        <VerticalStackLayout Padding="12" Spacing="4">
+
+                                            <!-- Bölge + puan -->
+                                            <Grid ColumnDefinitions="*, Auto">
+                                                <Label Grid.Column="0"
+                                       Text="{Binding CategoryName}"
+                                       FontFamily="Inter"
+                                       FontSize="12"
+                                       TextColor="#455A64"
+                                       VerticalOptions="Center" />
+                                                <HorizontalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                                    <Label Text="&#xe838;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="14"
+                                           TextColor="#D4AF37"
+                                           VerticalOptions="Center" />
+                                                    <Label Text="{Binding Score}"
+                                           FontFamily="Inter"
+                                           FontSize="12"
+                                           TextColor="#191C1D"
+                                           VerticalOptions="Center" />
+                                                </HorizontalStackLayout>
+                                            </Grid>
+
+                                            <!-- Mekan adı -->
+                                            <Label Text="{Binding Title}"
+                                   FontFamily="HankenBold"
+                                   FontSize="16"
+                                   TextColor="#0D47A1" />
+
+                                            <!-- Konum -->
+                                            <Label Text="{Binding Location}"
+                                   FontFamily="Inter"
+                                   FontSize="12"
+                                   TextColor="#737783" />
+
+                                        </VerticalStackLayout>
+
+                                    </VerticalStackLayout>
+
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+                <!-- === SENİN İÇİN ÖNERİLER === -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Senin İçin Öneriler"
+           FontFamily="HankenBold"
+           FontSize="24"
+           TextColor="#0D47A1" />
+
+                    <!-- BÜYÜK KART (üstte, tam genişlik) -->
+                    <Border StrokeThickness="0"
+            StrokeShape="RoundRectangle 16"
+            HeightRequest="240">
+                        <Grid>
+                            <Image Source="milano_003.jpg"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill" />
+                            <BoxView>
+                                <BoxView.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#00000000" Offset="0.3" />
+                                        <GradientStop Color="#CC000000" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </BoxView.Background>
+                            </BoxView>
+                            <VerticalStackLayout VerticalOptions="End" Padding="16" Spacing="4">
+                                <Label Text="Aperitivo Sanatı"
+                       FontFamily="HankenBold"
+                       FontSize="20"
+                       TextColor="#FFFFFF" />
+                                <Label Text="Brera'nın en iyi gizli barlarını keşfedin."
+                       FontFamily="HankenRegular"
+                       FontSize="14"
+                       TextColor="#E6FFFFFF" />
+                                <Border BackgroundColor="#33FFFFFF"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="12,5"
+                        HorizontalOptions="Start"
+                        Margin="0,6,0,0">
+                                    <Label Text="3 Saat"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#FFFFFF" />
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <!-- KÜÇÜK KART 1 (tam genişlik) -->
+                    <Border BackgroundColor="#FFFFFF"
+            Stroke="#C3C6D4"
+            StrokeThickness="1"
+            Padding="12"
+            StrokeShape="RoundRectangle 16">
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12">
+                            <Border Grid.Column="0"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    WidthRequest="80"
+                    HeightRequest="80">
+                                <Image Source="milano_004.jpg" Aspect="AspectFill" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                <Label Text="Son Akşam Yemeği Turu"
+                       FontFamily="HankenBold"
+                       FontSize="15"
+                       TextColor="#0D47A1" />
+                                <Label Text="Rehberli tarihi tur"
+                       FontFamily="Inter"
+                       FontSize="12"
+                       TextColor="#737783" />
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="€45"
+                           FontFamily="HankenBold"
+                           FontSize="15"
+                           TextColor="#0D47A1" />
+                                    <Label Text="&#xe838;"
+                           FontFamily="MaterialSymbols"
+                           FontSize="14"
+                           TextColor="#D4AF37"
+                           VerticalOptions="Center" />
+                                    <Label Text="4.9"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#191C1D"
+                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <!-- KÜÇÜK KART 2 (tam genişlik) -->
+                    <Border BackgroundColor="#FFFFFF"
+            Stroke="#C3C6D4"
+            StrokeThickness="1"
+            Padding="12"
+            StrokeShape="RoundRectangle 16">
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12">
+                            <Border Grid.Column="0"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    WidthRequest="80"
+                    HeightRequest="80">
+                                <Image Source="milano_005.jpg" Aspect="AspectFill" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                <Label Text="Moda Turu"
+                       FontFamily="HankenBold"
+                       FontSize="15"
+                       TextColor="#0D47A1" />
+                                <Label Text="Özel marka erişimi"
+                       FontFamily="Inter"
+                       FontSize="12"
+                       TextColor="#737783" />
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="€120"
+                           FontFamily="HankenBold"
+                           FontSize="15"
+                           TextColor="#0D47A1" />
+                                    <Label Text="&#xe838;"
+                           FontFamily="MaterialSymbols"
+                           FontSize="14"
+                           TextColor="#D4AF37"
+                           VerticalOptions="Center" />
+                                    <Label Text="5.0"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#191C1D"
+                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                </VerticalStackLayout>
+ 
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- === ALT NAV BAR === -->
+        <Grid Grid.Row="2"
+     ColumnDefinitions="*, *, *, *"
+     BackgroundColor="#FFFFFF"
+     Padding="0,8"
+     HeightRequest="64">
+
+            <!-- Ana Sayfa (aktif) -->
+            <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="&#xe88a;"
+              FontFamily="MaterialSymbols"
+              FontSize="24"
+              TextColor="#0D47A1"
+              HorizontalOptions="Center" />
+                <Label Text="Ana Sayfa"
+              FontFamily="Inter"
+              FontSize="11"
+              TextColor="#0D47A1"
+              HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Keşfet -->
+            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDiscoverTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe87a;"
+              FontFamily="MaterialSymbols"
+              FontSize="24"
+              TextColor="#737783"
+              HorizontalOptions="Center" />
+                <Label Text="Keşfet"
+              FontFamily="Inter"
+              FontSize="11"
+              TextColor="#737783"
+              HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Etkinlikler -->
+            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe878;"
+              FontFamily="MaterialSymbols"
+              FontSize="24"
+              TextColor="#737783"
+              HorizontalOptions="Center" />
+                <Label Text="Etkinlikler"
+              FontFamily="Inter"
+              FontSize="11"
+              TextColor="#737783"
+              HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Profil (yeni) -->
+            <VerticalStackLayout Grid.Column="3" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe7fd;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Profil" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
+

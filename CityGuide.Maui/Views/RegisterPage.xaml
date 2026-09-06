@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.RegisterPage"
+             Title="RegisterPage"
+             BackgroundColor="#F8F9FA">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20"
+                             Spacing="24"
+                             VerticalOptions="Center">
+
+            <!-- MARKA BAŞLIĞI -->
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+
+                <!-- Logo kutusu: mavi kare içinde mimari ikonu -->
+                <Border BackgroundColor="#0D47A1"
+                        WidthRequest="56"
+                        HeightRequest="56"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        HorizontalOptions="Center">
+                    <Label Text="&#xea3b;"
+                           FontFamily="MaterialSymbols"
+                           FontSize="30"
+                           TextColor="#FFFFFF"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Border>
+
+                <Label Text="Milano Şehir Rehberi"
+                       FontFamily="HankenBold"
+                       FontSize="24"
+                       TextColor="#0D47A1"
+                       HorizontalOptions="Center"
+                       Margin="0,8,0,0" />
+
+                <Label Text="Milano'yu keşfetmeye hazır mısınız?"
+                       FontFamily="HankenRegular"
+                       FontSize="16"
+                       TextColor="#455A64"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+
+            </VerticalStackLayout>
+
+            <!-- KAYIT KARTI -->
+            <Border BackgroundColor="#FFFFFF"
+                    Stroke="#C3C6D4"
+                    StrokeThickness="1"
+                    Padding="24"
+                    StrokeShape="RoundRectangle 12">
+
+                <VerticalStackLayout Spacing="16">
+
+                    <!-- === AD SOYAD ALANI === -->
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="&#xe7fd;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="18"
+                                   TextColor="#455A64"
+                                   VerticalOptions="Center" />
+                            <Label Text="Ad Soyad"
+                                   FontFamily="Inter"
+                                   FontSize="14"
+                                   TextColor="#434652"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border Stroke="#C3C6D4"
+                                StrokeThickness="1"
+                                Padding="12,0"
+                                StrokeShape="RoundRectangle 8">
+                            <Entry x:Name="FullNameEntry"
+                                   Placeholder="Adınızı ve soyadınızı girin"
+                                   FontFamily="HankenRegular"
+                                   FontSize="16"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- === E-POSTA ALANI === -->
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="&#xe0e6;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="18"
+                                   TextColor="#455A64"
+                                   VerticalOptions="Center" />
+                            <Label Text="E-posta Adresi"
+                                   FontFamily="Inter"
+                                   FontSize="14"
+                                   TextColor="#434652"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border Stroke="#C3C6D4"
+                                StrokeThickness="1"
+                                Padding="12,0"
+                                StrokeShape="RoundRectangle 8">
+                            <Entry x:Name="EmailEntry"
+                                   Placeholder="ornek@eposta.com"
+                                   Keyboard="Email"
+                                   FontFamily="HankenRegular"
+                                   FontSize="16"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- === ŞİFRE ALANI === -->
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="&#xe897;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="18"
+                                   TextColor="#455A64"
+                                   VerticalOptions="Center" />
+                            <Label Text="Şifre"
+                                   FontFamily="Inter"
+                                   FontSize="14"
+                                   TextColor="#434652"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border Stroke="#C3C6D4"
+                                StrokeThickness="1"
+                                Padding="12,0"
+                                StrokeShape="RoundRectangle 8">
+                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="8">
+                                <Entry Grid.Column="0"
+                                       x:Name="PasswordEntry"
+                                       Placeholder="Bir şifre oluşturun"
+                                       IsPassword="True"
+                                       FontFamily="HankenRegular"
+                                       FontSize="16"
+                                       HeightRequest="48"
+                                       BackgroundColor="Transparent" />
+                                <Label Grid.Column="1"
+                                       x:Name="PasswordToggleIcon"
+                                       Text="&#xe8f4;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="20"
+                                       TextColor="#455A64"
+                                       VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTogglePasswordVisibility" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- === ŞİFRE TEKRAR ALANI === -->
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="&#xe897;"
+                                   FontFamily="MaterialSymbols"
+                                   FontSize="18"
+                                   TextColor="#455A64"
+                                   VerticalOptions="Center" />
+                            <Label Text="Şifre Tekrar"
+                                   FontFamily="Inter"
+                                   FontSize="14"
+                                   TextColor="#434652"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border Stroke="#C3C6D4"
+                                StrokeThickness="1"
+                                Padding="12,0"
+                                StrokeShape="RoundRectangle 8">
+                            <Entry x:Name="ConfirmPasswordEntry"
+                                   Placeholder="Şifrenizi tekrar girin"
+                                   IsPassword="True"
+                                   FontFamily="HankenRegular"
+                                   FontSize="16"
+                                   HeightRequest="48"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- === ŞARTLAR ONAY KUTUSU === -->
+                    <Grid ColumnDefinitions="Auto, *" ColumnSpacing="8">
+                        <CheckBox Grid.Column="0"
+                                  x:Name="TermsCheckBox"
+                                  Color="#0D47A1"
+                                  VerticalOptions="Start" />
+
+                        <Label Grid.Column="1"
+                               FontFamily="Inter"
+                               FontSize="14"
+                               TextColor="#434652"
+                               VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Milano Şehir Rehberi'nin " />
+                                    <Span Text="Şartlar ve Koşulları"
+                                          TextColor="#0D47A1"
+                                          FontFamily="HankenBold"
+                                          TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnTermsTapped" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text="'nı ve " />
+                                    <Span Text="Gizlilik Politikası"
+                                          TextColor="#0D47A1"
+                                          FontFamily="HankenBold" />
+                                    <Span Text="'nı kabul ediyorum." />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+
+                    <!-- HESAP OLUŞTUR BUTONU -->
+                    <Button Text="Hesap Oluştur"
+                            x:Name="RegisterButton"
+                            Clicked="OnRegisterClicked"
+                            BackgroundColor="#0D47A1"
+                            TextColor="#FFFFFF"
+                            FontFamily="HankenBold"
+                            FontSize="16"
+                            HeightRequest="52"
+                            CornerRadius="8"
+                            Margin="0,8,0,0" />
+
+                    <!-- ALT EYLEM: Giriş Yap -->
+                    <VerticalStackLayout Spacing="12" Margin="0,8,0,0">
+                        <BoxView HeightRequest="1" Color="#C3C6D4" />
+                        <Label HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               FontFamily="Inter"
+                               FontSize="14"
+                               TextColor="#434652">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Zaten hesabın var mı? " />
+                                    <Span Text="Giriş Yap"
+                                          TextColor="#0D47A1"
+                                          FontFamily="HankenBold"
+                                          TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnSignInTapped" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- FOOTER -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                <Label Text="Destek"
+                       FontFamily="Inter"
+                       FontSize="12"
+                       TextColor="#455A64">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSupportTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="•" FontFamily="Inter" FontSize="12" TextColor="#C3C6D4" />
+                <Label Text="Dil: Türkçe"
+                       FontFamily="Inter"
+                       FontSize="12"
+                       TextColor="#455A64" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

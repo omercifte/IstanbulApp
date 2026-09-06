@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30"
+        Spacing="15">
+
+            <Label
+            Text="Roma Şehir Rehberi"
+            FontSize="35"
+            FontAttributes="Bold"
+            TextColor="LightSalmon"
+            HorizontalOptions="Center" />
+
+            <Label
+            Text="İtalya'nın moda ve sanat başkenti Roma hakkında bilgiler."
+            FontSize="16"
+            HorizontalTextAlignment="Center"
+            TextColor="Gray" />
+
+            <Frame
+            BackgroundColor="LightYellow"
+            CornerRadius="30"
+            Padding="15">
+
+                <VerticalStackLayout>
+
+                    <Label
+                    Text="Roma Meydanı"
+                    FontSize="30"
+                    FontAttributes="Bold"
+                    TextColor="#0D47A1" />
+
+                    <Label
+                    Text="Maui app denemesi"
+                    FontSize="15"
+                    TextColor="Black" />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Button
+            Text="Rezervasyon Yap"
+            BackgroundColor="RosyBrown"
+            TextColor="White"
+            CornerRadius="20"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

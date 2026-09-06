@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.FoodDrinksPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto, Auto, *, Auto">
+
+        <!-- ============ ÜST APP BAR ============ -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto, *, Auto"
+              Padding="20,12"
+              ColumnSpacing="12"
+              BackgroundColor="#F8F9FA">
+
+            <Label Grid.Column="0"
+                   Text="&#xe5c4;"
+                   FontFamily="MaterialSymbols"
+                   FontSize="24"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Grid.Column="1"
+                   Text="Yeme &amp; İçme"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center" />
+
+            <Border Grid.Column="2"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="1"
+                    Stroke="#C3C6D4"
+                    StrokeShape="RoundRectangle 18"
+                    VerticalOptions="Center">
+                <Image Source="profile.png" Aspect="AspectFill" />
+            </Border>
+
+        </Grid>
+
+        <!-- ============ ARAMA + FİLTRE ============ -->
+        <VerticalStackLayout Grid.Row="1" Padding="20,8,20,8" Spacing="14">
+
+            <Border Stroke="#C3C6D4"
+                    StrokeThickness="1"
+                    Padding="16,0"
+                    StrokeShape="RoundRectangle 12"
+                    BackgroundColor="#FFFFFF">
+                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12">
+                    <Label Grid.Column="0"
+                           Text="&#xe8b6;"
+                           FontFamily="MaterialSymbols"
+                           FontSize="20"
+                           TextColor="#737783"
+                           VerticalOptions="Center" />
+                    <Entry Grid.Column="1"
+                           Placeholder="Restoran, bar ara..."
+                           FontFamily="HankenRegular"
+                           FontSize="16"
+                           HeightRequest="48"
+                           BackgroundColor="Transparent" />
+                </Grid>
+            </Border>
+
+            <CollectionView x:Name="FilterCollection"
+                            SelectionMode="Single"
+                            SelectionChanged="OnFilterSelectionChanged"
+                            HeightRequest="44">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="{Binding BackgroundColor}"
+                                Stroke="{Binding BorderColor}"
+                                StrokeThickness="1"
+                                Padding="16,8"
+                                StrokeShape="RoundRectangle 20"
+                                VerticalOptions="Center">
+                            <Label Text="{Binding Name}"
+                                   FontFamily="HankenBold"
+                                   FontSize="14"
+                                   TextColor="{Binding TextColor}"
+                                   VerticalOptions="Center" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+        <!-- ============ RESTORAN LİSTESİ ============ -->
+        <CollectionView Grid.Row="2"
+                        x:Name="FoodPlacesCollection"
+                        Margin="20,0,20,8">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="16" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="0"
+                            StrokeShape="RoundRectangle 16">
+
+                        <VerticalStackLayout Spacing="0">
+
+                            <Border StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 16,16,0,0"
+                                    HeightRequest="180">
+                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                            </Border>
+
+                            <VerticalStackLayout Padding="16" Spacing="6">
+
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                        <Label Text="{Binding District}"
+                                               FontFamily="Inter"
+                                               FontSize="11"
+                                               TextColor="#455A64"
+                                               CharacterSpacing="1" />
+                                        <Label Text="{Binding Name}"
+                                               FontFamily="HankenBold"
+                                               FontSize="18"
+                                               TextColor="#0D47A1" />
+                                    </VerticalStackLayout>
+
+                                    <Border Grid.Column="1"
+                                            BackgroundColor="#FEF6D6"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 8"
+                                            Padding="8,4"
+                                            VerticalOptions="Start">
+                                        <HorizontalStackLayout Spacing="4">
+                                            <Label Text="&#xe838;"
+                                                   FontFamily="MaterialSymbols"
+                                                   FontSize="14"
+                                                   TextColor="#D4AF37"
+                                                   VerticalOptions="Center" />
+                                            <Label Text="{Binding Rating}"
+                                                   FontFamily="Inter"
+                                                   FontSize="13"
+                                                   TextColor="#745C00"
+                                                   VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                    </Border>
+                                </Grid>
+
+                                <HorizontalStackLayout Spacing="16" Margin="0,6,0,0">
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="&#xe8b6;"
+                                               FontFamily="MaterialSymbols"
+                                               FontSize="14"
+                                               TextColor="#455A64"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding PriceRange}"
+                                               FontFamily="Inter"
+                                               FontSize="13"
+                                               TextColor="#455A64"
+                                               VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="&#xe56c;"
+                                               FontFamily="MaterialSymbols"
+                                               FontSize="14"
+                                               TextColor="#455A64"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding CuisineType}"
+                                               FontFamily="Inter"
+                                               FontSize="13"
+                                               TextColor="#455A64"
+                                               VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <Button Text="Detayları Gör"
+                                        Clicked="OnViewDetailsClicked"
+                                        BackgroundColor="#0D47A1"
+                                        TextColor="#FFFFFF"
+                                        FontFamily="HankenBold"
+                                        FontSize="14"
+                                        HeightRequest="44"
+                                        CornerRadius="8"
+                                        Margin="0,8,0,0" />
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ============ ALT NAV BAR ============ -->
+        <Grid Grid.Row="3"
+              ColumnDefinitions="*, *, *, *"
+              BackgroundColor="#FFFFFF"
+              Padding="0,8"
+              HeightRequest="64">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe88a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Ana Sayfa" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDiscoverTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe87a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Keşfet" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe878;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Etkinlikler" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe7fd;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Profil" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

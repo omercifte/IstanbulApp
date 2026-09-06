@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.SplashPage"
+             BackgroundColor="#000000"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <!-- Tüm katmanlar üst üste (aynı Grid hücresi) -->
+    <Grid>
+
+        <!-- KATMAN 1: Arka plan görseli -->
+        <Image x:Name="BackgroundImage"
+       Aspect="AspectFill"
+       HorizontalOptions="Fill"
+       VerticalOptions="Fill" />
+
+
+        <!-- KATMAN 2: Karartma gradyanı (metin okunsun diye) -->
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#66000000" Offset="0.0" />
+                    <GradientStop Color="#1A000000" Offset="0.5" />
+                    <GradientStop Color="#99000000" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <!-- KATMAN 3: Merkez içerik (logo + başlık) -->
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="24">
+
+            <!-- Dairesel logo -->
+            <Border BackgroundColor="#1AFFFFFF"
+                    Stroke="#4DFFFFFF"
+                    StrokeThickness="1"
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    StrokeShape="RoundRectangle 40"
+                    HorizontalOptions="Center">
+                <Label Text="&#xea3b;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="40"
+                       TextColor="#D4AF37"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <!-- Başlık -->
+            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                <Label Text="MILANO"
+                       FontFamily="HankenBold"
+                       FontSize="40"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       CharacterSpacing="8" />
+                <Label Text="Şehir Rehberi"
+                       FontFamily="Inter"
+                       FontSize="14"
+                       TextColor="#CCFFFFFF"
+                       HorizontalOptions="Center"
+                       CharacterSpacing="6" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+        <!-- KATMAN 4: Yükleniyor çubuğu -->
+        <Border x:Name="LoadingBarTrack"
+                BackgroundColor="#33FFFFFF"
+                StrokeThickness="0"
+                WidthRequest="140"
+                HeightRequest="3"
+                StrokeShape="RoundRectangle 2"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,72">
+            <!-- Dolan kısım -->
+            <BoxView x:Name="LoadingBarFill"
+                     Color="#D4AF37"
+                     WidthRequest="0"
+                     HorizontalOptions="Start" />
+        </Border>
+
+        <!-- KATMAN 5: Alt slogan -->
+        <Label Text="İLHAM VEREN DENEYİMLER"
+               FontFamily="Inter"
+               FontSize="12"
+               TextColor="#99FFFFFF"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,40"
+               CharacterSpacing="4" />
+
+    </Grid>
+
+</ContentPage>

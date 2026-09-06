@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:CityGuide.Maui.Views"
+       x:Class="CityGuide.Maui.AppShell"
+       FlyoutBehavior="Disabled">
+
+    <ShellContent Route="splash"
+                  ContentTemplate="{DataTemplate views:SplashPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <ShellContent Route="login"
+                  ContentTemplate="{DataTemplate views:LoginPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <ShellContent Route="register"
+                  ContentTemplate="{DataTemplate views:RegisterPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <ShellContent Route="home"
+                  ContentTemplate="{DataTemplate views:HomePage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <ShellContent Route="discover"
+                  ContentTemplate="{DataTemplate views:FavoritesPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <ShellContent Route="events"
+                  ContentTemplate="{DataTemplate views:SpecialEventsPage}"
+                  Shell.NavBarIsVisible="False" />
+
+</Shell>

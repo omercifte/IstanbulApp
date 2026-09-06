@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.DashboardPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- ============ ÜST APP BAR ============ -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto, *, Auto"
+              Padding="20,12"
+              ColumnSpacing="12"
+              BackgroundColor="#F8F9FA">
+
+            <Border Grid.Column="0"
+                    BackgroundColor="#0D47A1"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+                <Label Text="&#xea3b;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <Label Grid.Column="1"
+                   Text="Milano Şehir Rehberi"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center" />
+
+            <Border Grid.Column="2"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="1"
+                    Stroke="#C3C6D4"
+                    StrokeShape="RoundRectangle 18"
+                    VerticalOptions="Center">
+                <Image Source="profile.png" Aspect="AspectFill" />
+            </Border>
+
+        </Grid>
+
+        <!-- ============ KAYAN İÇERİK ============ -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,8,20,20" Spacing="20">
+
+                <!-- Başlık -->
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Panel"
+                           FontFamily="HankenBold"
+                           FontSize="28"
+                           TextColor="#0D47A1" />
+                    <Label Text="Seyahatin için güncel bilgiler"
+                           FontFamily="HankenRegular"
+                           FontSize="16"
+                           TextColor="#455A64" />
+                </VerticalStackLayout>
+
+                <!-- ============ DÖVİZ KURU KARTI (pastel yeşil) ============ -->
+                <Border BackgroundColor="#E8F5E9"
+                        Stroke="#C8E6C9"
+                        StrokeThickness="1"
+                        Padding="18"
+                        StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="12">
+
+                        <HorizontalStackLayout Spacing="10">
+                            <Border BackgroundColor="#C8E6C9"
+                                    WidthRequest="40" HeightRequest="40"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 20">
+                                <Label Text="&#xe227;"
+                                       FontFamily="MaterialSymbols"
+                                       FontSize="20"
+                                       TextColor="#1B5E20"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                                <Label Text="Döviz Kuru"
+                                       FontFamily="HankenBold"
+                                       FontSize="17"
+                                       TextColor="#1B5E20" />
+                                <Label Text="Son güncelleme: az önce"
+                                       FontFamily="Inter"
+                                       FontSize="11"
+                                       TextColor="#1B5E20" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
+                            <Border Grid.Column="0"
+                                    BackgroundColor="#FFFFFF"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="14">
+                                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                    <Label Text="EUR/TRY"
+                                           FontFamily="Inter"
+                                           FontSize="12"
+                                           TextColor="#455A64"
+                                           HorizontalOptions="Center" />
+                                    <!-- EUR/TRY -->
+                                    <Label x:Name="EurRateLabel"
+       Text="Yükleniyor..."
+       FontFamily="HankenBold"
+       FontSize="22"
+       TextColor="#1B5E20"
+       HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border Grid.Column="1"
+                                    BackgroundColor="#FFFFFF"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="14">
+                                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                    <Label Text="USD/TRY"
+                                           FontFamily="Inter"
+                                           FontSize="12"
+                                           TextColor="#455A64"
+                                           HorizontalOptions="Center" />
+                                    <!-- USD/TRY -->
+                                    <Label x:Name="UsdRateLabel"
+       Text="Yükleniyor..."
+       FontFamily="HankenBold"
+       FontSize="22"
+       TextColor="#1B5E20"
+       HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ============ HAVA DURUMU KARTI (pastel mavi) ============ -->
+                <Border BackgroundColor="#E3F2FD"
+                        Stroke="#D9E2FF"
+                        StrokeThickness="1"
+                        Padding="18"
+                        StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="12">
+
+                        <!-- Başlık satırı: ikon + "Milano Hava Durumu" + "Şu an" -->
+                        <HorizontalStackLayout Spacing="10">
+                            <Border BackgroundColor="#D9E2FF"
+                WidthRequest="40" HeightRequest="40"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20">
+                                <Label Text="&#xe1ff;"
+                   FontFamily="MaterialSymbols"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                                <Label Text="Milano Hava Durumu"
+                   FontFamily="HankenBold"
+                   FontSize="17"
+                   TextColor="#0D47A1" />
+                                <Label Text="Şu an"
+                   FontFamily="Inter"
+                   FontSize="11"
+                   TextColor="#0D47A1" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+
+                        <!-- Büyük ikon + sıcaklık/açıklama -->
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="16">
+                            <Label Grid.Column="0"
+               Text="&#xe1ff;"
+               FontFamily="MaterialSymbols"
+               FontSize="48"
+               TextColor="#0D47A1"
+               VerticalOptions="Center" />
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label x:Name="TemperatureLabel"
+                   Text="—"
+                   FontFamily="HankenBold"
+                   FontSize="30"
+                   TextColor="#0D47A1" />
+                                <Label x:Name="WeatherDescriptionLabel"
+                   Text="Yükleniyor..."
+                   FontFamily="HankenRegular"
+                   FontSize="13"
+                   TextColor="#455A64" />
+                            </VerticalStackLayout>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ============ SAAT FARKI KARTI (pastel mor) ============ -->
+                <!--<Border BackgroundColor="#F3E5F5"
+        Stroke="#E1BEE7"
+        StrokeThickness="1"
+        Padding="18"
+        StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="12">
+                        <HorizontalStackLayout Spacing="10">
+                            <Border BackgroundColor="#E1BEE7"
+                    WidthRequest="40" HeightRequest="40"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20">
+                                <Label Text="&#xe8b5;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="20"
+                       TextColor="#4A148C"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                                <Label Text="Yerel Saat"
+                       FontFamily="HankenBold"
+                       FontSize="17"
+                       TextColor="#4A148C" />
+                                <Label Text="Milano, İtalya"
+                       FontFamily="Inter"
+                       FontSize="11"
+                       TextColor="#4A148C" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
+                            <Border Grid.Column="0"
+                    BackgroundColor="#FFFFFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="14">
+                                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                    <Label Text="Milano"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#455A64"
+                           HorizontalOptions="Center" />
+                                    <Label x:Name="MilanoTimeLabel"
+                           Text="—"
+                           FontFamily="HankenBold"
+                           FontSize="22"
+                           TextColor="#4A148C"
+                           HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border Grid.Column="1"
+                    BackgroundColor="#FFFFFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="14">
+                                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                    <Label Text="İstanbul"
+                           FontFamily="Inter"
+                           FontSize="12"
+                           TextColor="#455A64"
+                           HorizontalOptions="Center" />
+                                    <Label x:Name="TurkeyTimeLabel"
+                           Text="—"
+                           FontFamily="HankenBold"
+                           FontSize="22"
+                           TextColor="#4A148C"
+                           HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                        <Label x:Name="TimeDifferenceLabel"
+               Text="Hesaplanıyor..."
+               FontFamily="Inter"
+               FontSize="12"
+               TextColor="#4A148C"
+               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>-->
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ============ ALT NAV BAR ============ -->
+        <Grid Grid.Row="2"
+              ColumnDefinitions="*, *, *, *"
+              BackgroundColor="#FFFFFF"
+              Padding="0,8"
+              HeightRequest="64">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe88a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Ana Sayfa" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDiscoverTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe87a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Keşfet" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe878;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Etkinlikler" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe7fd;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Profil" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

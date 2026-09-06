@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.FavoritesPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *, Auto">
+
+        <!-- ============ ÜST APP BAR ============ -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto, *, Auto"
+              Padding="20,12"
+              ColumnSpacing="12"
+              BackgroundColor="#F8F9FA">
+
+            <Border Grid.Column="0"
+                    BackgroundColor="#0D47A1"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+                <Label Text="&#xea3b;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <Label Grid.Column="1"
+                   Text="Milano City Guide"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center" />
+
+            <Border Grid.Column="2"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="1"
+                    Stroke="#C3C6D4"
+                    StrokeShape="RoundRectangle 18"
+                    VerticalOptions="Center">
+                <Image Source="profile.png" Aspect="AspectFill" />
+            </Border>
+
+        </Grid>
+
+        <!-- Başlık -->
+        <VerticalStackLayout Grid.Row="1" Padding="20,8,20,8" Spacing="4">
+            <Label Text="Keşfet"
+                   FontFamily="HankenBold"
+                   FontSize="28"
+                   TextColor="#0D47A1" />
+            <Label Text="Milano'nun en iyi deneyimleri"
+                   FontFamily="HankenRegular"
+                   FontSize="16"
+                   TextColor="#455A64" />
+        </VerticalStackLayout>
+
+        <!-- FİLTRE ÇUBUĞU -->
+        <CollectionView Grid.Row="2"
+                        x:Name="FilterCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="OnFilterSelectionChanged"
+                        HeightRequest="52"
+                        Margin="20,0,20,8">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="{Binding BackgroundColor}"
+                            Stroke="{Binding BorderColor}"
+                            StrokeThickness="1"
+                            Padding="18,8"
+                            StrokeShape="RoundRectangle 22"
+                            VerticalOptions="Center">
+                        <Label Text="{Binding Name}"
+                               FontFamily="HankenBold"
+                               FontSize="14"
+                               TextColor="{Binding TextColor}"
+                               VerticalOptions="Center" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Mekan listesi -->
+        <CollectionView Grid.Row="3"
+                        x:Name="PlacesCollection"
+                        Margin="20,0,20,8">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="16" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            Padding="0"
+                            StrokeShape="RoundRectangle 16">
+
+                        <VerticalStackLayout Spacing="0">
+
+                            <!-- Mekan görseli + üstüne bindirilmiş rozet ve kalp -->
+                            <Grid HeightRequest="160">
+
+                                <Border StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 16,16,0,0">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                </Border>
+
+                                <!-- Kalp ikonu (sağ üst, yarı saydam daire) -->
+                                <Border BackgroundColor="#E6FFFFFF"
+                                        WidthRequest="36"
+                                        HeightRequest="36"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 18"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start"
+                                        Margin="0,12,12,0">
+                                    <Label Text="{Binding HeartIcon}"
+                                           TextColor="{Binding HeartColor}"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="20"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnFavoriteTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Border>
+
+                                <!-- Kategori rozeti (sol alt, görselin üzerinde) -->
+                                <Border BackgroundColor="#0D47A1"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 8"
+                                        Padding="8,3"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="End"
+                                        Margin="12,0,0,12">
+                                    <Label Text="{Binding CategoryName}"
+                                           FontFamily="Inter"
+                                           FontSize="10"
+                                           TextColor="#FFFFFF" />
+                                </Border>
+
+                            </Grid>
+
+                            <!-- İçerik -->
+                            <VerticalStackLayout Padding="16" Spacing="6">
+
+                                <!-- Başlık + puan -->
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Title}"
+                                           FontFamily="HankenBold"
+                                           FontSize="18"
+                                           TextColor="#0D47A1"
+                                           VerticalOptions="Center" />
+                                    <HorizontalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                        <Label Text="&#xe838;"
+                                               FontFamily="MaterialSymbols"
+                                               FontSize="16"
+                                               TextColor="#D4AF37"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding Score}"
+                                               FontFamily="Inter"
+                                               FontSize="14"
+                                               TextColor="#455A64"
+                                               VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </Grid>
+
+                                <!-- Konum -->
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="&#xe0c8;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="14"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+                                    <Label Text="{Binding Location}"
+                                           FontFamily="HankenRegular"
+                                           FontSize="14"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <!-- Detaylar butonu -->
+                                <Button Text="Detayları Gör"
+                                        Clicked="OnDetailsClicked"
+                                        BackgroundColor="#0D47A1"
+                                        TextColor="#FFFFFF"
+                                        FontFamily="HankenBold"
+                                        FontSize="14"
+                                        HeightRequest="42"
+                                        CornerRadius="8"
+                                        Margin="0,8,0,0" />
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ============ ALT NAV BAR ============ -->
+        <Grid Grid.Row="4"
+              ColumnDefinitions="*, *, *, *"
+              BackgroundColor="#FFFFFF"
+              Padding="0,8"
+              HeightRequest="64">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe88a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Ana Sayfa" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="&#xe87a;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#0D47A1" HorizontalOptions="Center" />
+                <Label Text="Keşfet" FontFamily="Inter" FontSize="11" TextColor="#0D47A1" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe878;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Etkinlikler" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="&#xe7fd;" FontFamily="MaterialSymbols" FontSize="24" TextColor="#737783" HorizontalOptions="Center" />
+                <Label Text="Profil" FontFamily="Inter" FontSize="11" TextColor="#737783" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
