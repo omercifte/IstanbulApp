@@ -18,11 +18,11 @@ public partial class FoodDrinksPage : ContentPage
         _filterItems = new List<FoodFilterItem>
         {
             new FoodFilterItem { Name = "Tümü", IsSelected = true },
-            new FoodFilterItem { Name = "Pasta" },
-            new FoodFilterItem { Name = "Pizza" },
-            new FoodFilterItem { Name = "Fine Dining" },
-            new FoodFilterItem { Name = "Aperitivo" },
-            new FoodFilterItem { Name = "Gelato" }
+            new FoodFilterItem { Name = "Türk Mutfaðý" },
+            new FoodFilterItem { Name = "Kahvaltý" },
+            new FoodFilterItem { Name = "Kebap & Izgara" },
+            new FoodFilterItem { Name = "Tatlý & Baklava" },
+            new FoodFilterItem { Name = "Manzaralý Mekanlar" }
         };
 
         FilterCollection.ItemsSource = _filterItems;

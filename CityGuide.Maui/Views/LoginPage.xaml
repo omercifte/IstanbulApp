@@ -31,7 +31,7 @@
                 </Border>
 
                 <!-- Başlık: headline-md 24 -->
-                <Label Text="Milano Şehir Rehberi"
+                <Label Text="İstanbul Şehir Rehberi"
            FontFamily="HankenBold"
            FontSize="24"
            TextColor="#0D47A1"
@@ -162,13 +162,13 @@
                     </VerticalStackLayout>
 
                     <!-- === BENİ HATIRLA === -->
-                    <HorizontalStackLayout Spacing="8">
+                    <HorizontalStackLayout Spacing="1">
 
                         <CheckBox x:Name="RememberCheckBox"
               Color="#0D47A1"
               VerticalOptions="Center" />
 
-                        <Label Text="Beni 30 gün boyunca hatırla"
+                        <Label Text="Beni hatırla"
            FontFamily="Inter"
            FontSize="14"
            TextColor="#455A64"

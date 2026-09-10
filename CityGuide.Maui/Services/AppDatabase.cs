@@ -105,12 +105,27 @@ namespace CityGuide.Maui.Services
             return await _database.InsertAsync(user);
         }
 
+        public async Task<int> UpdateUserAsync(User user)
+        {
+            await InitAsync();
+            return await _database.UpdateAsync(user);
+        }
+
         // E-postaya göre kullanıcı arar. Bulamazsa null döner.
         public async Task<User?> GetUserByEmailAsync(string email)
         {
             await InitAsync();
             return await _database.Table<User>()
                                   .Where(u => u.Email == email)
+                                  .FirstOrDefaultAsync();
+        }
+
+        public async Task<User?> GetUserByIdAsync(int userId)
+        {
+            await InitAsync();
+
+            return await _database.Table<User>()
+                                  .Where(u => u.Id == userId)
                                   .FirstOrDefaultAsync();
         }
 

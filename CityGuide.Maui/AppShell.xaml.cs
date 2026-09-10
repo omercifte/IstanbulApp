@@ -14,6 +14,8 @@
             Routing.RegisterRoute("favorites", typeof(Views.FavoritesPage));
             Routing.RegisterRoute("placedetail", typeof(Views.PlaceDetailPage));
             Routing.RegisterRoute("dashboard", typeof(Views.DashboardPage));
+            Routing.RegisterRoute("dashboard", typeof(Views.DashboardPage));
+            Routing.RegisterRoute("myfavorites", typeof(Views.MyFavoritesPage));
         }
 
      

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityGuide.Maui.Views.MyFavoritesPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F9FA">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- ============ ÜST APP BAR ============ -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="Auto,*,Auto"
+              Padding="20,12"
+              ColumnSpacing="12"
+              BackgroundColor="#F8F9FA">
+
+            <!-- Geri Butonu -->
+            <Border Grid.Column="0"
+                    BackgroundColor="#0D47A1"
+                    WidthRequest="36"
+                    HeightRequest="36"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+
+                <Label Text="&#xe5c4;"
+                       FontFamily="MaterialSymbols"
+                       FontSize="22"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackTapped" />
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+            </Border>
+
+            <!-- Sayfa Başlığı -->
+            <Label Grid.Column="1"
+                   Text="Favori Mekanlarım"
+                   FontFamily="HankenBold"
+                   FontSize="20"
+                   TextColor="#0D47A1"
+                   VerticalOptions="Center"
+                   Margin="12,0,0,0" />
+
+        </Grid>
+
+
+        <!-- ============ FAVORİ MEKANLAR ============ -->
+        <CollectionView Grid.Row="1"
+                        x:Name="FavoritesCollection"
+                        Margin="20,8,20,20">
+
+            <!-- Favori yoksa -->
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Spacing="10">
+
+                    <Label Text="&#xe87d;"
+                           FontFamily="MaterialSymbols"
+                           FontSize="50"
+                           TextColor="#C3C6D4"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Henüz favori mekanınız yok."
+                           FontFamily="HankenBold"
+                           FontSize="16"
+                           TextColor="#455A64"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Keşfet bölümünden mekanları favorilerinize ekleyebilirsiniz."
+                           FontFamily="HankenRegular"
+                           FontSize="13"
+                           TextColor="#737783"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+
+            <!-- Liste düzeni -->
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="16" />
+            </CollectionView.ItemsLayout>
+
+
+            <!-- Mekan Kartı -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border BackgroundColor="#FFFFFF"
+                            Stroke="#C3C6D4"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="0">
+
+                        <VerticalStackLayout Spacing="0">
+
+
+                            <!-- ============ GÖRSEL + KALP ============ -->
+                            <Grid HeightRequest="160">
+
+                                <!-- Mekan Görseli -->
+                                <Image Source="{Binding ImageUrl}"
+                                       Aspect="AspectFill" />
+
+
+                                <!-- Favori Kalbi -->
+                                <Border BackgroundColor="#E6FFFFFF"
+                                        WidthRequest="36"
+                                        HeightRequest="36"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 18"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Start"
+                                        Margin="0,12,12,0">
+
+                                    <Label Text="&#xe87d;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="20"
+                                           TextColor="#D32F2F"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center">
+
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnFavoriteTapped" />
+                                        </Label.GestureRecognizers>
+
+                                    </Label>
+
+                                </Border>
+
+                            </Grid>
+
+
+                            <!-- ============ MEKAN BİLGİLERİ ============ -->
+                            <VerticalStackLayout Padding="16"
+                                                 Spacing="8">
+
+                                <!-- Mekan Adı -->
+                                <Label Text="{Binding Title}"
+                                       FontFamily="HankenBold"
+                                       FontSize="18"
+                                       TextColor="#0D47A1" />
+
+
+                                <!-- Konum -->
+                                <HorizontalStackLayout Spacing="5">
+
+                                    <Label Text="&#xe0c8;"
+                                           FontFamily="MaterialSymbols"
+                                           FontSize="15"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding Location}"
+                                           FontFamily="HankenRegular"
+                                           FontSize="14"
+                                           TextColor="#455A64"
+                                           VerticalOptions="Center" />
+
+                                </HorizontalStackLayout>
+
+
+                                <!-- Detaylar Butonu -->
+                                <Button Text="Detayları Gör"
+                                        Clicked="OnDetailsClicked"
+                                        BackgroundColor="#0D47A1"
+                                        TextColor="#FFFFFF"
+                                        FontFamily="HankenBold"
+                                        FontSize="14"
+                                        HeightRequest="42"
+                                        CornerRadius="8"
+                                        Margin="0,4,0,0" />
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

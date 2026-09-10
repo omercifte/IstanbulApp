@@ -13,7 +13,7 @@
                    FontFamily="HankenBold"
                    FontSize="28"
                    TextColor="#0D47A1" />
-            <Label Text="Milano'nun öne çıkan deneyimleri"
+            <Label Text="İstanbul'un öne çıkan deneyimleri"
                    FontFamily="HankenRegular"
                    FontSize="16"
                    TextColor="#455A64" />

@@ -5,14 +5,11 @@ public partial class SplashPage : ContentPage
     // Arka plan görselleri (Resources/Images'taki dosyalar)
     private readonly string[] _images = new string[]
     {
-        "milano_000.jpg",
-        "milano_001.jpg",
-        "milano_002.jpg",
-        "milano_003.jpg",
-        "milano_004.jpg",
-        "milano_005.jpg",
-        "milano_006.jpg",
-        "milano_007.jpg"
+        "galatakulesi.png", 
+        "sultanahmet.jpg",
+        "balat.jpg"
+
+        
     };
 
     private int _currentIndex = 0;
@@ -39,7 +36,7 @@ public partial class SplashPage : ContentPage
 
     private async void NavigateAfterDelay()
     {
-        await Task.Delay(2000);  // 10 saniye
+        await Task.Delay(10000);  // 10 saniye
 
         if (!_isRunning) return;  // Sayfa zaten kapandıysa geçme
 
@@ -57,8 +54,8 @@ public partial class SplashPage : ContentPage
     {
         while (_isRunning)
         {
-            // 4.5 saniye bekle
-            await Task.Delay(3500);
+            // 3 saniye bekle
+            await Task.Delay(3000);
 
             if (!_isRunning) break;
 

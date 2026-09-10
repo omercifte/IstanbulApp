@@ -15,7 +15,7 @@
 
             <!-- Kolon 0: Marka adı (sola yaslı) -->
             <Label Grid.Column="0"
-                   Text="Milano City Guide"
+                   Text="İstanbul Şehir Rehberi"
                    TextColor="#0D47A1"
                    FontSize="22"
                    FontAttributes="Bold"
@@ -60,7 +60,7 @@
             HorizontalOptions="Start"
             StrokeThickness="0"
             StrokeShape="RoundRectangle 20">
-                            <Label Text="Milanoya Hoş Geldiniz"
+                            <Label Text="İstanbula Hoş Geldiniz"
                TextColor="#0D47A1"
                FontSize="12"
                FontAttributes="Bold" />
@@ -79,7 +79,7 @@
                 <!-- CONTENT -->
                 <VerticalStackLayout Padding="20,24" Spacing="16">
 
-                    <Label Text="Duomo'nun gotik ihtişamından Brera'nın gizli avlularına kadar Milano'yu gerçek bir yerli gibi keşfedin. Özenle seçilmiş mimari, dünya standartlarında lezzetler ve İtalyan yaşam tarzının zarafetini deneyimleyin."
+                    <Label Text="Duomo'nun gotik ihtişamından Brera'nın gizli avlularına kadar İstanbul'u gerçek bir yerli gibi keşfedin. Özenle seçilmiş mimari, dünya standartlarında lezzetler ve İtalyan yaşam tarzının zarafetini deneyimleyin."
            TextColor="#455A64"
            FontSize="16"
            LineHeight="1.4" />
@@ -235,7 +235,7 @@
 
                         <!-- Sol: telif metni -->
                         <Label Grid.Column="0"
-               Text="2026 Milano Şehir Rehberi. Tüm hakları saklıdır."
+               Text="2026 İstanbul Şehir Rehberi. Tüm hakları saklıdır."
                TextColor="#737783"
                FontSize="12"
                VerticalOptions="Center" />

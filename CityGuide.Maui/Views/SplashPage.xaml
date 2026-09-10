@@ -50,7 +50,7 @@
 
             <!-- Başlık -->
             <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
-                <Label Text="MILANO"
+                <Label Text="İSTANBUL"
                        FontFamily="HankenBold"
                        FontSize="40"
                        TextColor="#FFFFFF"

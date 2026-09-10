@@ -30,7 +30,7 @@
             </Border>
 
             <Label Grid.Column="1"
-                   Text="Milano Şehir Rehberi"
+                   Text="İstanbul Şehir Rehberi"
                    FontFamily="HankenBold"
                    FontSize="20"
                    TextColor="#0D47A1"
@@ -150,7 +150,7 @@
                         StrokeShape="RoundRectangle 16">
                     <VerticalStackLayout Spacing="12">
 
-                        <!-- Başlık satırı: ikon + "Milano Hava Durumu" + "Şu an" -->
+                        <!-- Başlık satırı: ikon + "İstanbul Hava Durumu" + "Şu an" -->
                         <HorizontalStackLayout Spacing="10">
                             <Border BackgroundColor="#D9E2FF"
                 WidthRequest="40" HeightRequest="40"
@@ -164,7 +164,7 @@
                    VerticalOptions="Center" />
                             </Border>
                             <VerticalStackLayout Spacing="0" VerticalOptions="Center">
-                                <Label Text="Milano Hava Durumu"
+                                <Label Text="İstanbul Hava Durumu"
                    FontFamily="HankenBold"
                    FontSize="17"
                    TextColor="#0D47A1" />
@@ -224,7 +224,7 @@
                        FontFamily="HankenBold"
                        FontSize="17"
                        TextColor="#4A148C" />
-                                <Label Text="Milano, İtalya"
+                                <Label Text="İstanbul, Türkiye"
                        FontFamily="Inter"
                        FontSize="11"
                        TextColor="#4A148C" />
@@ -237,12 +237,12 @@
                     StrokeShape="RoundRectangle 12"
                     Padding="14">
                                 <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
-                                    <Label Text="Milano"
+                                    <Label Text="İstanbul"
                            FontFamily="Inter"
                            FontSize="12"
                            TextColor="#455A64"
                            HorizontalOptions="Center" />
-                                    <Label x:Name="MilanoTimeLabel"
+                                    <Label x:Name="İstanbulTimeLabel"
                            Text="—"
                            FontFamily="HankenBold"
                            FontSize="22"

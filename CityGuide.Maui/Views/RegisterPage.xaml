@@ -29,14 +29,14 @@
                            VerticalOptions="Center" />
                 </Border>
 
-                <Label Text="Milano Şehir Rehberi"
+                <Label Text="İstanbul Şehir Rehberi"
                        FontFamily="HankenBold"
                        FontSize="24"
                        TextColor="#0D47A1"
                        HorizontalOptions="Center"
                        Margin="0,8,0,0" />
 
-                <Label Text="Milano'yu keşfetmeye hazır mısınız?"
+                <Label Text="İstanbul'u keşfetmeye hazır mısınız?"
                        FontFamily="HankenRegular"
                        FontSize="16"
                        TextColor="#455A64"
@@ -197,7 +197,7 @@
                                VerticalOptions="Center">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Milano Şehir Rehberi'nin " />
+                                    <Span Text="İstanbul Şehir Rehberi'nin " />
                                     <Span Text="Şartlar ve Koşulları"
                                           TextColor="#0D47A1"
                                           FontFamily="HankenBold"

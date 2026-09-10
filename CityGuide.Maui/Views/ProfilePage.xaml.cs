@@ -33,10 +33,13 @@ public partial class ProfilePage : ContentPage
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
         bool confirm = await DisplayAlert("Çýkýþ Yap", "Çýkýþ yapmak istediðinizden emin misiniz?", "Evet", "Hayýr");
-
         if (confirm)
         {
             CurrentSession.Clear();
+
+            Preferences.Remove("RememberMe");
+            Preferences.Remove("RememberedUserId");
+
             await Shell.Current.GoToAsync("//login");
         }
     }
@@ -54,6 +57,11 @@ public partial class ProfilePage : ContentPage
     private async void OnEventsTapped(object sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync("//events");
+    }
+
+    private async void OnFavoritesTapped(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("myfavorites");
     }
 }
 

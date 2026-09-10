@@ -30,7 +30,7 @@
             </Border>
 
             <Label Grid.Column="1"
-                   Text="Milano City Guide"
+                   Text="İstanbul Şehir Rehberi"
                    FontFamily="HankenBold"
                    FontSize="20"
                    TextColor="#0D47A1"
@@ -57,7 +57,7 @@
                        FontSize="11"
                        TextColor="#0D47A1"
                        CharacterSpacing="1.5" />
-                <Label Text="Milano'nun Ruhunu Keşfedin"
+                <Label Text="İstanbul'un Ruhunu Keşfedin"
                        FontFamily="HankenBold"
                        FontSize="28"
                        TextColor="#191C1D" />

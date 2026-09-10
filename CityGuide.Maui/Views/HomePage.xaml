@@ -30,7 +30,7 @@
             </Border>
 
             <Label Grid.Column="1"
-                   Text="Milano City Guide"
+                   Text="İstanbul Şehir Rehberi"
                    FontFamily="HankenBold"
                    FontSize="20"
                    TextColor="#0D47A1"
@@ -57,11 +57,11 @@
                 <VerticalStackLayout Spacing="16">
 
                     <VerticalStackLayout Spacing="4">
-                        <Label Text="Buongiorno! 👋"
+                        <Label Text="İstanbul’a Hoş Geldiniz! 👋"
                                FontFamily="HankenBold"
                                FontSize="32"
                                TextColor="#0D47A1" />
-                        <Label Text="Lombardiya'nın kalbini keşfetmeye hazır mısınız?"
+                        <Label Text="İstanbul’u birlikte keşfetmeye ne dersiniz?"
                                FontFamily="HankenRegular"
                                FontSize="18"
                                TextColor="#455A64" />
@@ -138,7 +138,7 @@
                         HeightRequest="380">
 
                     <Grid>
-                        <Image Source="milano_catedral.jpg"
+                        <Image Source="galatakulesi.png"
                                Aspect="AspectFill"
                                HorizontalOptions="Fill"
                                VerticalOptions="Fill" />
@@ -161,11 +161,11 @@
                                    FontSize="12"
                                    TextColor="#D4AF37"
                                    CharacterSpacing="2" />
-                            <Label Text="Milano Katedrali"
+                            <Label Text="Galata Kulesi"
                                    FontFamily="HankenBold"
                                    FontSize="28"
                                    TextColor="#FFFFFF" />
-                            <Label Text="Gün batımında çatı teraslarından mimari şaheseri deneyimleyin."
+                            <Label Text="İstanbul'un tarihi simgelerinden biri olup eşsiz Haliç, Boğaz ve şehir manzarasıyla ziyaretçilerine unutulmaz bir deneyim sunar."
                                    FontFamily="HankenRegular"
                                    FontSize="14"
                                    TextColor="#E6FFFFFF" />
@@ -451,7 +451,7 @@
             StrokeShape="RoundRectangle 16"
             HeightRequest="240">
                         <Grid>
-                            <Image Source="milano_003.jpg"
+                            <Image Source="ortakoy.jpg"
                    Aspect="AspectFill"
                    HorizontalOptions="Fill"
                    VerticalOptions="Fill" />
@@ -464,11 +464,11 @@
                                 </BoxView.Background>
                             </BoxView>
                             <VerticalStackLayout VerticalOptions="End" Padding="16" Spacing="4">
-                                <Label Text="Aperitivo Sanatı"
+                                <Label Text="Ortaköy"
                        FontFamily="HankenBold"
                        FontSize="20"
                        TextColor="#FFFFFF" />
-                                <Label Text="Brera'nın en iyi gizli barlarını keşfedin."
+                                <Label Text="Ortaköy'de keyifli kahvaltı keyfi..."
                        FontFamily="HankenRegular"
                        FontSize="14"
                        TextColor="#E6FFFFFF" />
@@ -478,7 +478,7 @@
                         Padding="12,5"
                         HorizontalOptions="Start"
                         Margin="0,6,0,0">
-                                    <Label Text="3 Saat"
+                                    <Label Text=""
                            FontFamily="Inter"
                            FontSize="12"
                            TextColor="#FFFFFF" />
@@ -499,19 +499,19 @@
                     StrokeShape="RoundRectangle 12"
                     WidthRequest="80"
                     HeightRequest="80">
-                                <Image Source="milano_004.jpg" Aspect="AspectFill" />
+                                <Image Source="emirgan.jpg" Aspect="AspectFill" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
-                                <Label Text="Son Akşam Yemeği Turu"
+                                <Label Text="Emirgan Korusu"
                        FontFamily="HankenBold"
                        FontSize="15"
                        TextColor="#0D47A1" />
-                                <Label Text="Rehberli tarihi tur"
+                                <Label Text="Tarihi ve doğal güzellikler bir arada..."
                        FontFamily="Inter"
                        FontSize="12"
                        TextColor="#737783" />
                                 <HorizontalStackLayout Spacing="8">
-                                    <Label Text="€45"
+                                    <Label Text="€0"
                            FontFamily="HankenBold"
                            FontSize="15"
                            TextColor="#0D47A1" />
@@ -542,19 +542,19 @@
                     StrokeShape="RoundRectangle 12"
                     WidthRequest="80"
                     HeightRequest="80">
-                                <Image Source="milano_005.jpg" Aspect="AspectFill" />
+                                <Image Source="balat.jpg" Aspect="AspectFill" />
                             </Border>
                             <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
-                                <Label Text="Moda Turu"
+                                <Label Text="Balat Turu"
                        FontFamily="HankenBold"
                        FontSize="15"
                        TextColor="#0D47A1" />
-                                <Label Text="Özel marka erişimi"
+                                <Label Text="Balatın eşsiz mimarisi"
                        FontFamily="Inter"
                        FontSize="12"
                        TextColor="#737783" />
                                 <HorizontalStackLayout Spacing="8">
-                                    <Label Text="€120"
+                                    <Label Text="€0"
                            FontFamily="HankenBold"
                            FontSize="15"
                            TextColor="#0D47A1" />

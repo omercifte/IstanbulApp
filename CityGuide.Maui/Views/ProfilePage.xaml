@@ -30,7 +30,7 @@
             </Border>
 
             <Label Grid.Column="1"
-                   Text="Milano City Guide"
+                   Text="İstanbul Şehir Rehberi"
                    FontFamily="HankenBold"
                    FontSize="20"
                    TextColor="#0D47A1"
@@ -91,28 +91,36 @@
                 <Grid ColumnDefinitions="*, *" ColumnSpacing="12">
 
                     <Border Grid.Column="0"
-                            BackgroundColor="#FFFFFF"
-                            Stroke="#C3C6D4"
-                            StrokeThickness="1"
-                            Padding="16"
-                            StrokeShape="RoundRectangle 12">
+        BackgroundColor="#FFFFFF"
+        Stroke="#C3C6D4"
+        StrokeThickness="1"
+        Padding="16"
+        StrokeShape="RoundRectangle 12">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnFavoritesTapped" />
+                        </Border.GestureRecognizers>
+
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="&#xe87d;"
-                                   FontFamily="MaterialSymbols"
-                                   FontSize="28"
-                                   TextColor="#D4AF37"
-                                   HorizontalOptions="Center" />
+               FontFamily="MaterialSymbols"
+               FontSize="28"
+               TextColor="#D4AF37"
+               HorizontalOptions="Center" />
+
                             <Label x:Name="FavoriteCountLabel"
-                                   FontFamily="HankenBold"
-                                   FontSize="24"
-                                   TextColor="#0D47A1"
-                                   HorizontalOptions="Center" />
+               FontFamily="HankenBold"
+               FontSize="24"
+               TextColor="#0D47A1"
+               HorizontalOptions="Center" />
+
                             <Label Text="Favori Mekan"
-                                   FontFamily="Inter"
-                                   FontSize="11"
-                                   TextColor="#455A64"
-                                   HorizontalOptions="Center" />
+               FontFamily="Inter"
+               FontSize="11"
+               TextColor="#455A64"
+               HorizontalOptions="Center" />
                         </VerticalStackLayout>
+
                     </Border>
 
                     <Border Grid.Column="1"
@@ -299,7 +307,7 @@
                             FontSize="16"
                             HeightRequest="52"
                             CornerRadius="12" />
-                    <Label Text="Sürüm 1.0.0 • Milano için üretildi"
+                    <Label Text="Sürüm 1.0.0 • İstanbul için üretildi"
                            FontFamily="Inter"
                            FontSize="11"
                            TextColor="#737783"
